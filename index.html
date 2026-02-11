@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nuestra Historia</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&family=Playfair+Display:ital@0;1&display=swap" rel="stylesheet">
+    
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <style>
+        /* ESTILOS GENERALES */
+        body {
+            font-family: 'Playfair Display', serif;
+            background-color: #fcf8f5; /* Color crema suave */
+            background-image: radial-gradient(#e0dcd9 1px, transparent 1px); /* Efecto papel punteado */
+            background-size: 20px 20px;
+            color: #4a4a4a;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        /* TIPOGRAFÍA */
+        h1, h2 {
+            font-family: 'Dancing Script', cursive;
+            color: #d17b88; /* Un rosa viejo bonito */
+        }
+        
+        h1 { font-size: 3.5rem; margin-bottom: 10px; }
+        p { font-size: 1.2rem; line-height: 1.6; color: #555; }
+        
+        /* EFECTO POLAROID */
+        .polaroid {
+            background: white;
+            padding: 15px 15px 50px 15px; /* Más espacio abajo para parecer polaroid */
+            box-shadow: 5px 5px 15px rgba(0,0,0,0.15);
+            width: 80%;
+            max-width: 400px;
+            margin: 40px auto;
+            transform: rotate(-2deg); /* Rotación natural */
+            transition: transform 0.3s ease;
+        }
+
+        .polaroid:hover {
+            transform: scale(1.05) rotate(0deg); /* Efecto zoom al pasar el mouse */
+            z-index: 10;
+        }
+
+        .polaroid img {
+            width: 100%;
+            filter: sepia(20%); /* Filtro vintage suave */
+        }
+
+        .caption {
+            font-family: 'Dancing Script', cursive;
+            font-size: 1.5rem;
+            margin-top: 15px;
+            color: #333;
+        }
+
+        /* DETALLES DE CINTA ADHESIVA (Washi Tape) */
+        .washi-tape {
+            background-color: rgba(255, 200, 200, 0.6);
+            width: 100px;
+            height: 30px;
+            position: absolute;
+            top: -10px;
+            left: 50%;
+            transform: translateX(-50%) rotate(-3deg);
+            box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+        }
+
+        /* SECCIONES */
+        .story-section {
+            margin-bottom: 80px;
+            position: relative;
+        }
+        
+        /* Rotar elementos alternados para que se vea orgánico */
+        .story-section:nth-child(even) .polaroid { transform: rotate(3deg); }
+        
+        footer {
+            margin-top: 50px;
+            font-size: 0.9rem;
+            color: #888;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <header data-aos="fade-down" data-aos-duration="1500">
+            <h1>Nuestra Historia</h1>
+            <p>Pequeños momentos, grandes recuerdos.</p>
+        </header>
+
+        <div class="story-section" data-aos="fade-up">
+            <p>Todo comenzó aquel día de verano...</p>
+            <div class="polaroid">
+                <div class="washi-tape"></div>
+                <img src="https://images.unsplash.com/photo-1529619768328-e37af76c6fe5?w=500" alt="Nosotros">
+                <div class="caption">El inicio de todo ❤️</div>
+            </div>
+        </div>
+
+        <div class="story-section" data-aos="fade-left">
+            <p>Nuestra primera aventura juntos. No sabíamos a dónde íbamos, pero sabíamos con quién.</p>
+            <div class="polaroid">
+                <div class="washi-tape" style="background-color: rgba(173, 216, 230, 0.6);"></div>
+                <img src="https://images.unsplash.com/photo-1469334031218-e382a71b716b?w=500" alt="Viaje">
+                <div class="caption">Escapada de fin de semana</div>
+            </div>
+        </div>
+
+        <div class="story-section" data-aos="zoom-in">
+            <p>Y seguimos sumando capítulos a este libro.</p>
+            <div class="polaroid">
+                <div class="washi-tape" style="background-color: rgba(240, 230, 140, 0.6);"></div>
+                <img src="https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?w=500" alt="Abrazo">
+                <div class="caption">Por mil momentos más</div>
+            </div>
+        </div>
+
+        <footer>
+            Hecho con mucho amor para ti.<br>
+            ~ 2024 ~
+        </footer>
+    </div>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init();
+    </script>
+</body>
+</html>
