@@ -3,158 +3,246 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nuestra Historia</title>
+    <title>Nuestra Historia Especial</title>
     
-    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&family=Playfair+Display:ital@0;1&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
     
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
     <style>
-        /* ESTILOS GENERALES */
+        /* BASE Y FONDO */
         body {
-            font-family: 'Playfair Display', serif;
-            background-color: #fcf8f5; /* Color crema suave */
-            background-image: radial-gradient(#e0dcd9 1px, transparent 1px); /* Efecto papel punteado */
-            background-size: 20px 20px;
-            color: #4a4a4a;
+            font-family: 'Open Sans', sans-serif;
+            background-color: #f0f0e8; /* Un beige muy claro, como papel viejo */
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"><rect width="20" height="20" fill="none" /><path d="M0 0h1v19H0zM19 0h1v19h-1zM0 0h19V0H0zM0 19h19V19H0z" fill="rgba(0,0,0,0.05)"/></svg>'); /* Textura sutil de cuadrícula */
             margin: 0;
-            padding: 0;
-            overflow-x: hidden;
-        }
-
-        .container {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 40px 20px;
-            text-align: center;
-        }
-
-        /* TIPOGRAFÍA */
-        h1, h2 {
-            font-family: 'Dancing Script', cursive;
-            color: #d17b88; /* Un rosa viejo bonito */
-        }
-        
-        h1 { font-size: 3.5rem; margin-bottom: 10px; }
-        p { font-size: 1.2rem; line-height: 1.6; color: #555; }
-        
-        /* EFECTO POLAROID */
-        .polaroid {
-            background: white;
-            padding: 15px 15px 50px 15px; /* Más espacio abajo para parecer polaroid */
-            box-shadow: 5px 5px 15px rgba(0,0,0,0.15);
-            width: 80%;
-            max-width: 400px;
-            margin: 40px auto;
-            transform: rotate(-2deg); /* Rotación natural */
-            transition: transform 0.3s ease;
-        }
-
-        .polaroid:hover {
-            transform: scale(1.05) rotate(0deg); /* Efecto zoom al pasar el mouse */
-            z-index: 10;
-        }
-
-        .polaroid img {
-            width: 100%;
-            filter: sepia(20%); /* Filtro vintage suave */
-        }
-
-        .caption {
-            font-family: 'Dancing Script', cursive;
-            font-size: 1.5rem;
-            margin-top: 15px;
+            padding: 20px;
             color: #333;
+            line-height: 1.6;
+            overflow-x: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start; /* Alinea arriba para que el contenido no quede centrado verticalmente */
+            min-height: 100vh;
         }
 
-        /* DETALLES DE CINTA ADHESIVA (Washi Tape) */
-        .washi-tape {
-            background-color: rgba(255, 200, 200, 0.6);
-            width: 100px;
-            height: 30px;
-            position: absolute;
-            top: -10px;
-            left: 50%;
-            transform: translateX(-50%) rotate(-3deg);
-            box-shadow: 0 1px 3px rgba(0,0,0,0.2);
-        }
-
-        /* SECCIONES */
-        .story-section {
-            margin-bottom: 80px;
+        /* CONTENEDOR PRINCIPAL "PAGINA" */
+        .page-container {
+            background-color: #ffffff; /* Blanco para el "papel" principal */
+            border: 1px solid #ddd;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            padding: 40px;
+            margin: 20px 0;
             position: relative;
+            max-width: 900px; /* Ancho máximo para el "papel" */
+            width: 100%;
+            transform: rotate(-1deg); /* Ligera inclinación para un efecto más natural */
         }
         
-        /* Rotar elementos alternados para que se vea orgánico */
-        .story-section:nth-child(even) .polaroid { transform: rotate(3deg); }
-        
+        .page-container::before { /* Sombra sutil para dar profundidad */
+            content: '';
+            position: absolute;
+            top: -5px; left: -5px; right: -5px; bottom: -5px;
+            background-color: rgba(0,0,0,0.02);
+            z-index: -1;
+            transform: rotate(1deg);
+        }
+
+        /* TEXTO Y ENCABEZADOS */
+        h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5rem;
+            color: #5a5a5a;
+            text-align: center;
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        h1::after { /* Subrayado decorativo */
+            content: '';
+            position: absolute;
+            left: 50%;
+            bottom: 0;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background-color: #d17b88; /* Un rosa viejo */
+        }
+
+        h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            color: #777;
+            text-align: left;
+            margin-top: 40px;
+            border-bottom: 1px dashed #ccc;
+            padding-bottom: 10px;
+        }
+
+        p {
+            font-family: 'Open Sans', sans-serif;
+            font-size: 1.1rem;
+            text-align: justify;
+            margin-bottom: 1em;
+        }
+
+        /* SECCIÓN DE FOTOS TIPO SCRAPBOOK */
+        .photo-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-top: 40px;
+            margin-bottom: 40px;
+            justify-items: center;
+        }
+
+        .photo-item {
+            background-color: white;
+            border: 2px solid #ccc; /* Borde más grueso como los de la imagen */
+            box-shadow: 3px 3px 10px rgba(0,0,0,0.1);
+            padding: 10px;
+            position: relative;
+            width: 100%;
+            max-width: 250px;
+            box-sizing: border-box;
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease;
+        }
+
+        .photo-item:nth-child(even) { transform: rotate(3deg); } /* Rotar algunas fotos */
+        .photo-item:nth-child(odd) { transform: rotate(-2deg); }
+        .photo-item:hover {
+            transform: scale(1.05) rotate(0deg); /* Animación al pasar el ratón */
+            box-shadow: 5px 5px 15px rgba(0,0,0,0.2);
+            z-index: 2;
+        }
+
+        .photo-item img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            filter: grayscale(20%) brightness(105%); /* Tono vintage */
+        }
+
+        .photo-caption {
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            text-align: center;
+            margin-top: 10px;
+            font-size: 1rem;
+            color: #666;
+        }
+
+        /* Washi tape decorativo */
+        .washi-tape-top {
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%) rotate(2deg);
+            background-color: rgba(255, 200, 200, 0.7); /* Rosa pastel semi-transparente */
+            width: 80px;
+            height: 25px;
+            z-index: 1;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        .photo-item .washi-tape-top {
+            background-color: rgba(173, 216, 230, 0.7); /* Azul pastel */
+            width: 60px;
+            height: 20px;
+            top: -10px;
+            transform: translateX(-50%) rotate(-5deg);
+        }
+
+        /* Estrellas decorativas (simuladas con CSS) */
+        .star {
+            position: absolute;
+            background-color: gold;
+            width: 8px;
+            height: 8px;
+            clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+            opacity: 0.7;
+            animation: twinkle 1.5s infinite alternate;
+        }
+        .star:nth-child(1) { top: 10px; left: 20px; transform: scale(0.8) rotate(10deg); }
+        .star:nth-child(2) { top: 50px; right: 30px; transform: scale(0.6) rotate(-20deg); animation-delay: 0.5s; }
+        .star:nth-child(3) { bottom: 10px; left: 100px; transform: scale(0.9) rotate(5deg); animation-delay: 1s; }
+        .star:nth-child(4) { top: 120px; left: 40%; transform: scale(0.7) rotate(25deg); animation-delay: 0.2s; }
+
+        @keyframes twinkle {
+            from { opacity: 0.7; }
+            to { opacity: 1; }
+        }
+
         footer {
+            text-align: center;
             margin-top: 50px;
             font-size: 0.9rem;
             color: #888;
+            border-top: 1px dashed #eee;
+            padding-top: 20px;
         }
     </style>
 </head>
 <body>
 
-    <div class="container">
-        <header data-aos="fade-down" data-aos-duration="1500">
+    <div class="page-container" data-aos="zoom-in" data-aos-duration="1000">
+        <div class="washi-tape-top"></div> <span class="star"></span>
+        <span class="star"></span>
+        <span class="star"></span>
+        <span class="star"></span>
+
+        <header>
             <h1>Nuestra Historia</h1>
-            <p>Pequeños momentos, grandes recuerdos.</p>
+            <p style="text-align: center; font-style: italic; color: #777;">Un viaje de momentos, risas y mucho amor.</p>
         </header>
 
-        <div class="story-section" data-aos="fade-up">
-            <p>Todo comenzó aquel día de verano...</p>
-            <div class="polaroid">
-                <div class="washi-tape"></div>
-                <img src="https://images.unsplash.com/photo-1529619768328-e37af76c6fe5?w=500" alt="Nosotros">
-                <div class="caption">El inicio de todo ❤️</div>
-            </div>
-        </div>
+        <section data-aos="fade-up" data-aos-delay="200">
+            <h2>El Comienzo de Todo</h2>
+            <p>Todo empezó aquel día que nuestros caminos se cruzaron, sin saber que estábamos a punto de escribir el capítulo más bonito de nuestras vidas. Fue un encuentro casual que se convirtió en el inicio de nuestra aventura favorita.</p>
+            <p>Desde ese primer café/cita/mirada, supimos que algo especial estaba naciendo. Cada conversación era un descubrimiento, cada risa, una melodía.</p>
+        </section>
 
-        <div class="story-section" data-aos="fade-left">
-            <p>Nuestra primera aventura juntos. No sabíamos a dónde íbamos, pero sabíamos con quién.</p>
-            <div class="polaroid">
-                <div class="washi-tape" style="background-color: rgba(173, 216, 230, 0.6);"></div>
-                <img src="https://images.unsplash.com/photo-1469334031218-e382a71b716b?w=500" alt="Viaje">
-                <div class="caption">Escapada de fin de semana</div>
+        <section class="photo-grid" data-aos="fade-up" data-aos-delay="400">
+            <div class="photo-item" data-aos="fade-right">
+                <div class="washi-tape-top"></div>
+                <img src="https://via.placeholder.com/250x200/e0e0e0/333333?text=Tu+Foto+1" alt="Primer encuentro">
+                <div class="photo-caption">Nuestro primer "hola"</div>
             </div>
-        </div>
-
-        <div class="story-section" data-aos="zoom-in">
-            <p>Y seguimos sumando capítulos a este libro.</p>
-            <div class="polaroid">
-                <div class="washi-tape" style="background-color: rgba(240, 230, 140, 0.6);"></div>
-                <img src="https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?w=500" alt="Abrazo">
-                <div class="caption">Por mil momentos más</div>
+            <div class="photo-item" data-aos="fade-left" data-aos-delay="100">
+                <div class="washi-tape-top" style="background-color: rgba(240, 230, 140, 0.7);"></div>
+                <img src="https://via.placeholder.com/250x200/d0d0d0/333333?text=Tu+Foto+2" alt="Primer viaje">
+                <div class="photo-caption">La primera aventura</div>
             </div>
-        </div>
+            <div class="photo-item" data-aos="fade-right" data-aos-delay="200">
+                <div class="washi-tape-top" style="background-color: rgba(200, 255, 200, 0.7);"></div>
+                <img src="https://via.placeholder.com/250x200/c0c0c0/333333?text=Tu+Foto+3" alt="Momentos juntos">
+                <div class="photo-caption">Inolvidables risas</div>
+            </div>
+            <div class="photo-item" data-aos="fade-left" data-aos-delay="300">
+                <div class="washi-tape-top" style="background-color: rgba(255, 182, 193, 0.7);"></div>
+                <img src="https://via.placeholder.com/250x200/b0b0b0/333333?text=Tu+Foto+4" alt="Celebraciones">
+                <div class="photo-caption">Celebrando la vida</div>
+            </div>
+        </section>
 
-        <footer>
-            Hecho con mucho amor para ti.<br>
-            ~ 2024 ~
+        <section data-aos="fade-up" data-aos-delay="600">
+            <h2>Nuestra Canción, Nuestro Rincón</h2>
+            <p>Cada historia tiene su banda sonora, y la nuestra está llena de melodías que nos recuerdan a esos momentos únicos. Desde esa canción que escuchamos en el coche hasta la que nos hace bailar sin control.</p>
+            <p>Este rincón es nuestro, un espacio donde podemos revivir cada instante. ¡Gracias por cada recuerdo y por los que están por venir!</p>
+        </section>
+        
+        <footer data-aos="fade-up" data-aos-delay="800">
+            Con todo mi amor,<br>
+            [Tu Nombre]
         </footer>
     </div>
 
-    
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
-        AOS.init();
+        AOS.init({
+            once: true, // Solo animar una vez al bajar por la página
+            duration: 800, // Duración de la animación
+        });
     </script>
 </body>
-<div style="position: fixed; bottom: 20px; right: 20px; z-index: 100; background: rgba(255,255,255,0.8); padding: 10px; border-radius: 50px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
-    <audio controls id="miMusica">
-        <source src="nombre-de-tu-cancion.mp3" type="audio/mpeg">
-        Tu navegador no soporta el audio.
-    </audio>
-</div>
-
-<script>
-    // Esto intenta reproducir la música cuando el usuario hace clic en cualquier parte
-    // (Los navegadores modernos bloquean el audio automático si no hay interacción)
-    document.body.addEventListener('click', function() {
-        var audio = document.getElementById('miMusica');
-        audio.play();
-    }, { once: true });
-</script>
 </html>
