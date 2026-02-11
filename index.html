@@ -136,6 +136,22 @@
         </footer>
     </div>
 
+    <div style="position: fixed; bottom: 20px; right: 20px; z-index: 100; background: rgba(255,255,255,0.8); padding: 10px; border-radius: 50px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
+    <audio controls id="miMusica">
+        <source src="nombre-de-tu-cancion.mp3" type="audio/mpeg">
+        Tu navegador no soporta el audio.
+    </audio>
+</div>
+
+<script>
+    // Esto intenta reproducir la música cuando el usuario hace clic en cualquier parte
+    // (Los navegadores modernos bloquean el audio automático si no hay interacción)
+    document.body.addEventListener('click', function() {
+        var audio = document.getElementById('miMusica');
+        audio.play();
+    }, { once: true });
+</script>
+
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
         AOS.init();
